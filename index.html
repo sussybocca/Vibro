@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vibro Web Container</title>
+</head>
+<body>
+  <h1>Vibro Web Container</h1>
+  <p>Click below to launch the project in your browser:</p>
+  <button id="runBtn">Run Vibro</button>
+
+  <script type="module">
+    import { WebContainer } from 'https://cdn.jsdelivr.net/npm/@webcontainer/api@latest/dist/webcontainer.min.js';
+
+    const btn = document.getElementById('runBtn');
+    btn.addEventListener('click', async () => {
+      const wc = await WebContainer.boot();
+      const fs = wc.fs;
+
+      // Optionally load project files from GitHub
+      // Example: fetch repo zip and unzip
+      console.log('Web Container ready! You can now run `npm install && npm start`');
+    });
+  </script>
+</body>
+</html>
